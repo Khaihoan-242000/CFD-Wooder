@@ -1,1 +1,425 @@
 // CSS HOMEPAGE
+main {
+    width: 100%;
+    max-height: 100%;
+    /* slider */ 
+    .slider {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        &__list {
+            width: 100%;
+            height: 100%;
+            &-item {
+                position: relative;
+                width: 100%;
+                height: 100%;
+               .textbox {
+                    @include mid();
+                    z-index: 100;
+                    text-align: center;
+                    h2 {
+                        font-size: 83px;
+                        font-family: 'PNR';
+                        letter-spacing: 20px;
+                        color: $yellow-cl;
+                        text-transform: uppercase;
+                        @include sm {
+                            font-size: 73px;
+                            letter-spacing: 15px;
+                        }
+                        @include xs {
+                            font-size: 53px;
+                            letter-spacing: 10px;
+                        }
+                        
+                    }
+                    a {
+                        color: $white-cl;
+                        text-decoration: none;
+                        padding: 10px 50px;
+                        border: 1px solid $white-cl;
+                        display: inline-flex;
+                        align-items: center;
+                        font-size: 14px;
+                        text-transform: uppercase;
+                        letter-spacing: 3px;
+                        margin-top: 50px;
+                        opacity: .6;
+                        @include sm {
+                            padding: 8px 45px;
+                            margin-top: 40px;
+                        }
+                        @include xs {
+                            padding: 5px 25px;
+                            margin-top: 30px;
+                            font-size: 12px;
+                            letter-spacing: 2px;
+                        }
+                        img {
+                            width: 30px;
+                            margin-left: 10px;
+                            @include sm {
+                                width: 25px;
+                            }
+                        }
+                    }
+               }
+               .slider-img {
+                   width: 100%;
+                   height: 100%;
+                    @include midimg()
+               }
+            }
+        }
+        &__control {
+            width: 100%;
+            position: absolute;
+            bottom: 50px;
+            @include xs {
+               bottom: 20px;
+            }
+            @include ipx {
+                bottom: 10px;
+             }
+            .container-fluid {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                @include xs {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                }
+                @include ipx {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                }
+                .page {
+                    display: flex;
+                    align-items: center;
+                    span {
+                        font-size: 42px;
+                        font-family: 'PNR';
+                        color: $yellow-cl;
+                        margin-left: 15px;
+                        @include sm {
+                            font-size: 32px;
+                            margin-left: 10px;
+                        }
+                        @include xs {
+                            display: none;
+                        }
+                        @include ipx {
+                            display: none;
+                        }
+                    }
+                    &::before {
+                        content: '';
+                        width: 40px;
+                        height: 2px;
+                        background-color: $yellow-cl;
+                        display: block;
+                        @include sm {
+                            width: 35px;
+                        }
+                        @include xs {
+                            display: none;
+                        }
+                        @include ipx {
+                            display: none;
+                        }
+                    }
+                    ul {
+                        display: flex;
+                        @include xs {
+                            position: absolute;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                        @include ipx {
+                            position: absolute;
+                            left: 50%;
+                            transform: translateX(-50%);
+                         }
+                        li {
+                            width: 8px;
+                            height: 8px;
+                            border-radius: 999px;
+                            background-color: $white-cl;
+                            margin-left: 15px;
+                            opacity: 0.5;
+                            cursor: pointer;
+                            @include sm {
+                                width: 7px;
+                                height: 7px;
+                            }
+                        }
+                        .active, li:hover {
+                            transition: all $t ease;
+                            background-color: $yellow-cl;
+                        }
+                    }
+                }
+                .mouse {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    @include xs {
+                        display: none;
+                    }
+                    @include ipx {
+                        display: none;
+                    }
+                    &__img {
+                        opacity: .6;
+                    }
+                    &__arrow {
+                        width: 10px;
+                        height: 60px;
+                        margin-top: 10px;
+                        @include sm {
+                            width: 10px;
+                            height: 50px;
+                        }
+                    }
+                }
+                .next {
+                    display: flex;
+                    flex-direction: row;
+                    opacity: .6;
+                    @include xs {
+                        display: none;
+                    }
+                    @include ipx {
+                        display: none;
+                    }
+                    a {
+                        padding: 10px 20px;
+                        border: 1px solid $white-cl;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        @include sm {
+                            padding: 8px 18px;
+                        }
+                        &:hover {
+                            background-color: $yellow-cl;
+                            transition: all $t ease;
+                        }
+                    }
+                    &__left {
+                        transform: rotate(180deg);
+                        border-right: -1;
+                    }
+                }
+                img  {
+                    width: 30px;
+                }
+            }
+        }
+    }
+    /* products */
+    .products {
+        &__item {
+            display: flex;
+            padding: $padding-main;
+            @include sm {
+                padding: 70px 0;
+            }
+            @include xs {
+                display: block;
+                padding: 40px 0;
+            }
+            &-left {
+                width: 45%;
+                position: relative;
+                @include sm {
+                    width: 100%
+                }
+                .textbox {
+                    @include mid();
+                    @include xs {
+                        position: initial;
+                        top: initial;
+                        left: initial;
+                        transform: initial;
+                    }
+                    h3 {
+                        position: relative;
+                        &::before {
+                            content: '';
+                            width: 80px;
+                            height: 2px;
+                            background-color: $text-style-cl;
+                            position: absolute;
+                            top: 50%;
+                            left: -40%;
+                            transform: translateY(-50%);
+                            @include sm {
+                                width: 70px;
+                            }
+                            @include xs {
+                                display: none;
+                            }
+                        }
+                    }
+                    p {
+                        // font-size: 16px;
+                        // font-family: 'BNG';
+                        // color: $text-cl;
+                        @include sm {
+                            font-size: 14px;
+                        }
+                    }
+                    a {
+                        position: relative;
+                        @include sm {
+                            font-size: 12px;
+                        }
+                        img {
+                            width: 30px;
+                            margin-left: 10px;
+                            @include sm {
+                                width: 25px;
+                            }
+                        }
+                        &::before {
+                            content: '';
+                            width: 35px;
+                            height: 2px;
+                            background-color: $yellow-cl;
+                            position: absolute;
+                            bottom: 10px;
+                        }
+                    }
+                }
+            }
+            &-right {
+                width: 55%;
+                @include sm {
+                    width: 100%;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+    /* video */
+    .video {
+        padding: 90px;
+        @include sm {
+            padding: 70px;
+        }
+        @include xs {
+            position: relative;
+        }
+        &__title {
+            text-align: center;
+            h3 {
+                span {
+                    position: relative;
+                    &::before {
+                        content: '';
+                        width: 35px;
+                        height: 2px;
+                        background-color: $yellow-cl;
+                        position: absolute;
+                        bottom: 0;
+                        margin-left: -20px;
+                    }
+                }
+            }
+            p {
+                margin-top: 20px;
+            }
+        }
+        &__list {
+            margin-top: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include xs {
+                display: block;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                // display: initial;
+                // align-items: initial;
+                // justify-content: initial;
+                
+            }
+            &-item {
+                padding-left: 30px;
+                padding-right: 30px;
+                position: relative;
+                @include xs {
+                    margin-top: 30px;
+                }
+                .cd-video {
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                    position: relative;
+                    overflow: hidden;
+                    border: 10px solid $white-cl;
+                    -webkit-box-shadow: 0px 0px 10px 0px #000000; 
+                    box-shadow: 0px 0px 10px 0px #000000;
+                    .video-1 {
+                        @include midimg();
+                    }
+                    a {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        // background-color: $yellow-cl;
+                        // padding: 20px;
+                        // border-radius: 50%;
+                        &::before {
+                            content: '';
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            background-color: $yellow-cl;
+                            display: block;
+                            opacity: .5;
+                        }
+                        img {
+                            position: absolute;
+                            width: 20px;
+                            // display: flex;
+                            // align-items: center;
+                            // justify-content: center;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+                h3 {
+                    text-align: center;
+                    margin-top: 50px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    font-family: 'BNG';
+                    &::before {
+                        content: '';
+                        width: 35px;
+                        height: 3px;
+                        background-color: $yellow-cl;
+                        position: absolute;
+                        bottom: 40px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+        }
+        
+    }
+}

@@ -68,7 +68,16 @@
 		@content;
 	}
 }
-
+/*Iphone X*/
+@mixin ipx {
+	@media only screen 
+    and (device-width : 812px) 
+    and (device-height : 375px) 
+    and (-webkit-device-pixel-ratio : 3) {
+		@content;
+	}
+}
+/*Animation*/ 
 @mixin keyframes($animation-name) {
 	@-webkit-keyframes #{$animation-name} {
 		@content;

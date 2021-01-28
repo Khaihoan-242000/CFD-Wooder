@@ -34,6 +34,10 @@ body {
         padding-left: 30px;
         margin-right: auto;
         margin-left: auto;
+        @include xs {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
     }
     .row {
         display: -webkit-box;

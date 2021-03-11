@@ -1,1 +1,22 @@
 // css footer
+.footer {
+    background-color: $black-cl;
+    padding: 25px 0;
+    position: relative;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .totop {
+            color: $white-cl;
+            padding: 10px 20px;
+            border: 1px solid #fff;
+            cursor: pointer;
+        }
+    }
+}

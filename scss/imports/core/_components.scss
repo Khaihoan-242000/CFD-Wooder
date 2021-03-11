@@ -1,1 +1,57 @@
 // css components
+.product-textbox {
+    padding: 80px 30px;
+    margin-left: 80px;
+    @include sm {
+        padding: 10px 0px;
+        margin-left: 0;
+    }
+    .title {
+        position:  relative;
+        &::before {
+            content: '';
+            width: 80px;
+            height: 2px;
+            background-color: $black-cl;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: -110px;
+            @include sm {
+                display: none;
+            }
+        }
+    }
+    &.--textright {
+        text-align: right;
+        padding: 80px 0px;
+        margin-right: 100px;
+        @include sm {
+            padding: 10px 0px;
+            margin-right: 0;
+        }
+        .title {
+            &:before {
+                margin-left: 170px;
+            }
+        }
+    }
+    & .btn {
+        position: relative;
+        &:before {
+            content: '';
+            width: 35px;
+            height: 2px;
+            background-color: $yellow-cl;
+            display: inline-block;
+            position: absolute;
+            bottom: 5px;
+        }
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: $yellow-cl;
+            transition: all .5s ease;
+        }
+    }
+}

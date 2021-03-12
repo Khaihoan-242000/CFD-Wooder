@@ -7,16 +7,26 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include sm {
+            display: block;
+            text-align: center;
+        }
         a {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
+            @include sm {
+                margin-top: 20px;
+            }
         }
         .totop {
             color: $white-cl;
             padding: 10px 20px;
             border: 1px solid #fff;
             cursor: pointer;
+            @include sm {
+                margin-top: 60px;
+            }
         }
     }
 }

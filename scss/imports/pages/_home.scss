@@ -572,6 +572,12 @@ main {
                 img {
                     height: 200px;
                     width: 100%;
+                    @include sm {
+                        height: 400px;
+                    }
+                    @include xs {
+                        height: 300px;
+                    }
                 }
                 .new__item-text {
                     .title {

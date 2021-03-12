@@ -266,3 +266,35 @@ window.onload = function() {
 // $(window).load(function () {
 //     initPhotoSwipeFromDOM('.carousel-img');
 // });
+
+
+// menu scroll
+// let menu = document.querySelectorAll('header .menu a')
+
+// menu.forEach(function(element, index) {
+//     element.addEventListener('click', function(e) {
+//         e.preventDefault()
+//         let href = element.getAttribute('href')
+//         let className = href.replace('#', '')
+//         let section = document.querySelectorAll('.' + className)
+//         let positionSection = section.offsetTop;
+//         console.log(section)
+//         window.scrollTo({
+//             top: positionSection,
+//             behavior: 'smooth'
+//         });
+//     })
+// })
+
+let buttom_video = document.querySelectorAll('.cd-video')
+let popup_video = document.querySelector('.popup-video')
+let close_popup = document.querySelector('.close-popup')
+buttom_video.forEach(function(item) {
+    item.addEventListener('click', function() {
+        popup_video.classList.add('active')
+    })
+})
+
+close_popup.addEventListener('click', function() {
+    popup_video.classList.remove('active')
+})

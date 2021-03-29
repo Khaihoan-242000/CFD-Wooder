@@ -269,22 +269,25 @@ window.onload = function() {
 
 
 // menu scroll
-// let menu = document.querySelectorAll('header .menu a')
+let menu = document.querySelectorAll('header .menu a')
 
-// menu.forEach(function(element, index) {
-//     element.addEventListener('click', function(e) {
-//         e.preventDefault()
-//         let href = element.getAttribute('href')
-//         let className = href.replace('#', '')
-//         let section = document.querySelectorAll('.' + className)
-//         let positionSection = section.offsetTop;
-//         console.log(section)
-//         window.scrollTo({
-//             top: positionSection,
-//             behavior: 'smooth'
-//         });
-//     })
-// })
+menu.forEach(function(element, index) {
+    element.addEventListener('click', function(e) {
+        e.preventDefault()
+        let href = element.getAttribute('href')
+        let className = href.replace('#', '')
+        let section = document.querySelector('.' + className)
+
+        let positionSection = section.offsetTop;
+        console.log(positionSection)
+
+        console.log(section)
+        window.scrollTo({
+            top: positionSection,
+            behavior: 'smooth'
+        });
+    })
+})
 
 let buttom_video = document.querySelectorAll('.cd-video')
 let popup_video = document.querySelector('.popup-video')

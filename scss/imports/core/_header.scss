@@ -58,7 +58,7 @@ header {
                     &::before {
                         content: '';
                         width: 100%;
-                        height: 2px;
+                        height: 1px;
                         background-color: $yellow-cl;
                         display: inline-block;
                         position: absolute;
@@ -73,7 +73,16 @@ header {
                         transform: scale(1);
                         transform-origin: center;
                         transition: all .5s ease;
+                    }
+                    &.active {
+                        color: $yellow-cl;
+                        transition: all .3s ease;
 
+                    }
+                    &.active::before {
+                        transform: scale(1);
+                        transform-origin: center;
+                        transition: all .3s ease;
                     }
                 }
             }

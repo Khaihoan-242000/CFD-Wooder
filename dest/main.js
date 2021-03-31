@@ -263,32 +263,45 @@ toTop.addEventListener('click', function() {
 window.onload = function() {
   initPhotoSwipeFromDOM('.carousel-img');
 }
-// $(window).load(function () {
-//     initPhotoSwipeFromDOM('.carousel-img');
-// });
 
 
 // menu scroll
+function removeActiveMenu() {
+    menu.forEach(function(menu__element, index) {
+        menu__element.classList.remove('active')
+    })
+}
 let menu = document.querySelectorAll('header .menu a')
-
+let headerMenuTop = document.querySelector('header').offsetHeight;
+let sections = []
 menu.forEach(function(element, index) {
+    let className = element.getAttribute('href').replace('#', '')
+    let section = document.querySelector('.' + className)
+    sections.push(section)
     element.addEventListener('click', function(e) {
         e.preventDefault()
-        let href = element.getAttribute('href')
-        let className = href.replace('#', '')
-        let section = document.querySelector('.' + className)
-
-        let positionSection = section.offsetTop;
-        console.log(positionSection)
-
-        console.log(section)
         window.scrollTo({
-            top: positionSection,
+            top: section.offsetTop - headerMenuTop,
             behavior: 'smooth'
         });
+        // active menu
+        removeActiveMenu()
+        element.classList.add('active')
+    })
+})
+window.addEventListener('scroll', function(e) {
+    let positionScroll = window.pageYOffset
+    sections.forEach(function(section, index) {
+        if(positionScroll > section.offsetTop - headerMenuTop) {
+            removeActiveMenu()
+            menu[index].classList.add('active')
+        } else {
+            menu[index].classList.remove('active')
+        }
     })
 })
 
+// video
 let buttom_video = document.querySelectorAll('.cd-video')
 let popup_video = document.querySelector('.popup-video')
 let close_popup = document.querySelector('.close-popup')

@@ -110,6 +110,14 @@ main {
                     align-items: center;
                     justify-content: center;
                     white-space: nowrap;
+                    @include xs {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    @include ipx {
+                        width: 100%;
+                        height: 100%;
+                    }
                     span {
                         width: 50px;
                         font-size: 42px;
@@ -145,9 +153,18 @@ main {
                     }
                     .dotted {
                         position: relative;
+                        @include xs {
+                            width: 100%;
+                            height: 100%;
+                        }
+                        @include ipx {
+                            width: 100%;
+                            height: 100%;
+                        }
                     }
                     ol {
                         display: flex;
+                        
                         @include xs {
                             position: absolute;
                             left: 50%;
@@ -169,6 +186,11 @@ main {
                             @include sm {
                                 width: 7px;
                                 height: 7px;
+                            }
+                            @include xs {
+                                width: 11px;
+                                height: 11px;
+                                margin-top: -20px;
                             }
                         }
                         .is-selected, li:hover {

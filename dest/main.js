@@ -307,12 +307,14 @@ let buttom_video = document.querySelectorAll('.cd-video')
 let popup_video = document.querySelector('.popup-video')
 let close_popup = document.querySelector('.close-popup')
 buttom_video.forEach(function(item) {
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function(e) {
+        e.preventDefault()
         popup_video.classList.add('active')
     })
 })
 
-close_popup.addEventListener('click', function() {
+close_popup.addEventListener('click', function(e) {
+    e.preventDefault()
     popup_video.classList.remove('active')
 })
 

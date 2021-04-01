@@ -324,13 +324,24 @@ $carousel.flickity({
     wrapAround: true,
     prevNextButtons: false, 
     on: {
-
+        ready: function() {
+            let dotted = $('.flickity-page-dots')
+            let paging = $('.slider__control .page .dotted')
+            dotted.appendTo(paging)
+        },
+        change: function(index) {
+            let number = $('.slider__control .page .number')
+            let indexPage = index + 1
+            number.text(indexPage.toString().padStart(2, 0))
+        }
     }
 })
 
-$(".next__left").on('click', function() {
+$(".next__left").on('click', function(e) {
+    e.preventDefault()
     $carousel.flickity('previous')
 })
-$(".next__right").on('click', function() {
+$(".next__right").on('click', function(e) {
+    e.preventDefault()
     $carousel.flickity('next')
 })

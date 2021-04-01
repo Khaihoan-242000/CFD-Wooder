@@ -108,6 +108,8 @@ main {
                 .page {
                     display: flex;
                     align-items: center;
+                    justify-content: center;
+                    white-space: nowrap;
                     span {
                         width: 50px;
                         font-size: 42px;
@@ -141,7 +143,10 @@ main {
                             display: none;
                         }
                     }
-                    ul {
+                    .dotted {
+                        position: relative;
+                    }
+                    ol {
                         display: flex;
                         @include xs {
                             position: absolute;
@@ -166,7 +171,7 @@ main {
                                 height: 7px;
                             }
                         }
-                        .active, li:hover {
+                        .is-selected, li:hover {
                             transition: all $t ease;
                             background-color: $yellow-cl;
                         }

@@ -51,57 +51,57 @@ window.addEventListener('scroll', function() {
 })
 
 // slider
-listItemSlider.forEach(function(itemSlider, index) {
-  if(itemSlider.classList.contains('active')) {
-      currentSlider = index;
-  }
-})
-function showNumber(index) {
-  number.innerHTML = (index).toString().padStart(2,'0')
-}
-document.querySelector('.next__right').addEventListener('click', function(e) {
-  console.log('ok')
-  e.preventDefault()
-  if(currentSlider < listItemSlider.length - 1) {
-      goTo(currentSlider +1)
-      // listItemSlider[currentSlider].classList.remove('active')
-      // listItemSlider[currentSlider +1].classList.add('active')
-      // currentSlider++
-  } else {
-      goTo(0)
-      // listItemSlider[currentSlider].classList.remove('active')
-      // listItemSlider[0].classList.add('active')
-      // currentSlider = 0
-  }
-})
-document.querySelector('.next__left').addEventListener('click', function(e) {
-  console.log('ok')
-    e.preventDefault()
-  if(currentSlider > 0) {
-      goTo(currentSlider - 1)
-      // listItemSlider[currentSlider].classList.remove('active')
-      // listItemSlider[currentSlider - 1].classList.add('active')
-      // currentSlider--
-  } else {
-      goTo(listItemSlider.length -1)
-      // listItemSlider[currentSlider].classList.remove('active')
-      // listItemSlider[listItemSlider.length -1].classList.add('active')
-      // currentSlider = listItemSlider.length -1
-  }
-})
-dot.forEach(function(li, index) {
-  li.addEventListener('click', function() {
-      goTo(index)
-  })
-})
-function goTo(index) {
-  listItemSlider[currentSlider].classList.remove('active')
-  listItemSlider[index].classList.add('active')
-  dot[currentSlider].classList.remove('active')
-  dot[index].classList.add('active')
-  currentSlider = index
-  showNumber(currentSlider + 1)
-}
+// listItemSlider.forEach(function(itemSlider, index) {
+//   if(itemSlider.classList.contains('active')) {
+//       currentSlider = index;
+//   }
+// })
+// function showNumber(index) {
+//   number.innerHTML = (index).toString().padStart(2,'0')
+// }
+// document.querySelector('.next__right').addEventListener('click', function(e) {
+//   console.log('ok')
+//   e.preventDefault()
+//   if(currentSlider < listItemSlider.length - 1) {
+//       goTo(currentSlider +1)
+//       // listItemSlider[currentSlider].classList.remove('active')
+//       // listItemSlider[currentSlider +1].classList.add('active')
+//       // currentSlider++
+//   } else {
+//       goTo(0)
+//       // listItemSlider[currentSlider].classList.remove('active')
+//       // listItemSlider[0].classList.add('active')
+//       // currentSlider = 0
+//   }
+// })
+// document.querySelector('.next__left').addEventListener('click', function(e) {
+//   console.log('ok')
+//     e.preventDefault()
+//   if(currentSlider > 0) {
+//       goTo(currentSlider - 1)
+//       // listItemSlider[currentSlider].classList.remove('active')
+//       // listItemSlider[currentSlider - 1].classList.add('active')
+//       // currentSlider--
+//   } else {
+//       goTo(listItemSlider.length -1)
+//       // listItemSlider[currentSlider].classList.remove('active')
+//       // listItemSlider[listItemSlider.length -1].classList.add('active')
+//       // currentSlider = listItemSlider.length -1
+//   }
+// })
+// dot.forEach(function(li, index) {
+//   li.addEventListener('click', function() {
+//       goTo(index)
+//   })
+// })
+// function goTo(index) {
+//   listItemSlider[currentSlider].classList.remove('active')
+//   listItemSlider[index].classList.add('active')
+//   dot[currentSlider].classList.remove('active')
+//   dot[index].classList.add('active')
+//   currentSlider = index
+//   showNumber(currentSlider + 1)
+// }
 
 // back to top
 
@@ -290,9 +290,10 @@ menu.forEach(function(element, index) {
     })
 })
 window.addEventListener('scroll', function(e) {
+    e.preventDefault()
     let positionScroll = window.pageYOffset
     sections.forEach(function(section, index) {
-        if(positionScroll > section.offsetTop - headerMenuTop) {
+        if(positionScroll > section.offsetTop - headerMenuTop - 10) {
             removeActiveMenu()
             menu[index].classList.add('active')
         } else {
@@ -313,4 +314,23 @@ buttom_video.forEach(function(item) {
 
 close_popup.addEventListener('click', function() {
     popup_video.classList.remove('active')
+})
+
+// flickity Thư viên
+let $carousel = $(".slider__list")
+$carousel.flickity({
+    cellAlign: 'left',
+    contain: false,
+    wrapAround: true,
+    prevNextButtons: false, 
+    on: {
+
+    }
+})
+
+$(".next__left").on('click', function() {
+    $carousel.flickity('previous')
+})
+$(".next__right").on('click', function() {
+    $carousel.flickity('next')
 })
